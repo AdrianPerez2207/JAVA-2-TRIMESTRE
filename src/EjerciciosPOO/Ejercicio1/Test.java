@@ -1,9 +1,6 @@
-package Ejercicio1;
-
-import Ejercicio1.Temperatura;
+package EjerciciosPOO.Ejercicio1;
 
 public class Test {
-
     public static void main(String[] args) {
 
         System.out.println(Temperatura.celsiusToFarenheit(26));

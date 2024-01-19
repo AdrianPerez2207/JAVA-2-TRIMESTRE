@@ -1,7 +1,6 @@
-package Ejercicio1;
+package EjerciciosPOO.Ejercicio1;
 
 public class Temperatura {
-
     public  static double celsiusToFarenheit(double celsius){
         return (1.8 * celsius + 32);
     }
