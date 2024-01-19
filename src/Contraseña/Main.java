@@ -1,3 +1,5 @@
+package Contraseña;
+
 public class Main {
     public static void main(String[] args) {
         Password p1 = new Password();

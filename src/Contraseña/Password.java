@@ -1,3 +1,5 @@
+package Contraseña;
+
 public class Password {
     int longitud;
     String texto;
@@ -14,7 +16,7 @@ public class Password {
     //Método
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Password{");
+        final StringBuffer sb = new StringBuffer("Contraseña.Password{");
         sb.append("longitud=").append(longitud);
         sb.append(", texto='").append(texto).append('\'');
         sb.append('}');
