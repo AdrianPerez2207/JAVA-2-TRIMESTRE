@@ -68,6 +68,7 @@ public class SteamJuego {
     //Métodos
     public void jugadoresDia(int jugadoresHoy){
         double jugadoresActualizados;
+        //Fórmula para calcular la media de los jugadores diarios
         jugadoresActualizados = ((mediaJugadoresDiarios * diasDesdeSalida) + jugadoresHoy) / (diasDesdeSalida + 1);
     }
 }
