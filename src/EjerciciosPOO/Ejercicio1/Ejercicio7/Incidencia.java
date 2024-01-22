@@ -1,7 +1,7 @@
 package EjerciciosPOO.Ejercicio1.Ejercicio7;
 
 public class Incidencia {
-    enum Estado {abierta, en_proceso, resuelta};
+    enum Estado { ABIERTA, ENPROCESO, RESUELTA };
     private int codigo;
     private Estado estado;
     private String problema;
@@ -11,7 +11,7 @@ public class Incidencia {
 
     public Incidencia(int codigo, Estado estado, String problema, String solucion) {
         this.codigo = codigo;
-        this.estado = Estado.abierta;
+        this.estado = Estado.ABIERTA;
         this.problema = problema;
         this.solucion = solucion;
 
@@ -76,10 +76,11 @@ public class Incidencia {
     }
 
     //Métodos
-    public static void resuelve(){ //Método para descontar las incidencias que ya están resultas
-        if (pendientes > 0){
-            pendientes--;
-        }
+    public void resuelve(String solucion){ //Método para descontar las incidencias que ya están resultas
+        this.estado = Estado.RESUELTA;
+        this.solucion = solucion;
+
+        Incidencia.pendientes--;
     }
     public static int getPendientesActual() { //Método estático que devuelve el número de incidencias pendientes de resolver
         return Incidencia.pendientes;
