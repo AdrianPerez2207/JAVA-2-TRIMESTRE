@@ -1,4 +1,4 @@
-package PruebaClase_10_1.PruebaClase;
+package PruebaClase_10_1.PruebaClase_ArrayList;
 import java.util.ArrayList;
 import java.util.Objects;
 
