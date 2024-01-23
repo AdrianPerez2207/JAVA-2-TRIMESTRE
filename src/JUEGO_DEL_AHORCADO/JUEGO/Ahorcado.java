@@ -16,8 +16,8 @@ public class Ahorcado {
         this.palabraIntentada = new String("-".repeat(palabraAdivinar.length()));
         //Inicializamos el número de fallos en 0
         this.numFallos = 0;
-        //Inicializamos la variable "letras" con el número de letras de la palabra adivinar
-        this.letras = new String[palabraAdivinar.length()];
+        //Inicializamos la variable "letras" con el número de fallos
+        this.letras = new String[7];
     }
     //Getters and setters--------------------------------
 
