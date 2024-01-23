@@ -2,22 +2,22 @@ package JUEGO_DEL_AHORCADO.JUEGO;
 
 public class Ahorcado {
     private static String[] Palabras = {"TECLADO", "RATON", "ORDENADOR", "TELEFONO", "MONITOR", "ALFOMBRILLA", "PROGRAMACION", "MOCHILA",
-    "AGUA", "MANOS", "PALABRA", "GATO", "SILLA", "PROYECTOR"};
+            "AGUA", "MANOS", "PALABRA", "GATO", "SILLA", "PROYECTOR"};
     private String palabraAdivinar;
     private String palabraIntentada;
     private int numFallos;
-    private String[] letras;
+    private String letras[];
 
     //Constructor-----------------------------------
     public Ahorcado() {
         //Buscamos una palabra aleatoria para adivinar y la guardamos en la variable "palabraAdivinar"
-        palabraAdivinar = Palabras[generarNumero(Palabras.length, 0)];
+        this.palabraAdivinar = Palabras[generarNumero(Palabras.length - 1, 0)];
         //Inicialimos la variable "palabraIntentada" con "-"
-        palabraIntentada = new String("-".repeat(palabraAdivinar.length()));
+        this.palabraIntentada = new String("-".repeat(palabraAdivinar.length()));
         //Inicializamos el número de fallos en 0
-        numFallos = 0;
+        this.numFallos = 0;
         //Inicializamos la variable "letras" con el número de letras de la palabra adivinar
-        letras = new String[palabraAdivinar.length()];
+        this.letras = new String[palabraAdivinar.length()];
     }
     //Getters and setters--------------------------------
 
