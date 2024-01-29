@@ -29,8 +29,7 @@ public class TestAhorcado {
                     case 2:
                         System.out.println("Introduce la palabra a probar: ");
                         palabra = sc.nextLine();
-                        ahorcado.probarPalabra(palabra);
-                        if (ahorcado.probarPalabra(palabra) == true) {
+                        if (ahorcado.probarPalabra(palabra)) {
                             System.out.println(ahorcado.getPalabraAdivinar());
                             System.out.println("ENHORABUENA. HAS ACERTADO LA PALABRA!!");
                             break;
