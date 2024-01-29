@@ -17,6 +17,9 @@ public class Tienda {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    public ArrayList<Producto> getProductos() {
+        return productos;
+    }
     //toString-----------------------------------
     @Override
     public String toString() {
@@ -41,6 +44,6 @@ public class Tienda {
     }
     //Métodos----------------------------------------
     public void agregarProducto(Producto producto) {
-        productos.add(producto);
+        this.productos.add(producto);
     }
 }

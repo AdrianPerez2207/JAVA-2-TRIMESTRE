@@ -31,7 +31,7 @@ public class Producto {
     //ToString----------------------------------------
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Producto1{");
+        final StringBuffer sb = new StringBuffer("Producto{");
         sb.append("nombre='").append(nombre).append('\'');
         sb.append(", precio=").append(precio);
         sb.append('}');
