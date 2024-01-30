@@ -2,7 +2,7 @@ package BLADE_OF_DARKNESS.Clases;
 
 public class Monstruo {
     private String nombre;
-    private enum clase{GOBLIN, TROLL, SKRALL, DEMONIO, FANTASMA};
+    public enum clase{GOBLIN, TROLL, SKRALL, DEMONIO, FANTASMA};
     private clase claseMonstruo;
     private int nivel;
     private int salud;
@@ -96,5 +96,14 @@ public class Monstruo {
             this.salud = 0;
             return true;
         }
+    }
+
+    /**
+     *
+     * @param jugador Llamamos al método reducir vida de la clase jugador.
+     *                Cuando el monstruo golpee, reducirá la vida lo que indique el golpe
+     */
+    public void golpear(Jugador jugador){
+        jugador.reducirVida(this.puntosD);
     }
 }

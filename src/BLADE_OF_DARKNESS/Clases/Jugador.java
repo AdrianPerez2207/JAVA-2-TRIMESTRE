@@ -2,7 +2,7 @@ package BLADE_OF_DARKNESS.Clases;
 
 public class Jugador {
     private String nombre;
-    private enum clase{MAGO, BRUJO, BARBARO, CABALLERO};
+    public enum clase{MAGO, BRUJO, BARBARO, CABALLERO};
     private clase claseJugador;
     private int nivel;
     private int experiencia;
@@ -148,6 +148,40 @@ public class Jugador {
         } else {
             this.salud = 0;
             return true;
+        }
+    }
+    /**
+     *
+     * @param monstruo Llamamos al método reducir vida de la clase Monstruo.
+     *                Cuando el jugador golpee, reducirá la vida lo que indique el golpe del arma que posee.
+     *                Si el jugador tiene un arma de 2 manos, quitará el daño de una de las manos.
+     *                 Comprobamos la mano que tiene ocupada.
+     */
+    public void golpear(Monstruo monstruo){
+        if (this.getArmaDerecha() != null){
+            monstruo.reducirVida(this.getArmaDerecha().getPuntosD());
+            if (! this.getArmaDerecha().isDosManos()){
+                if (this.getArmaIzquierda() != null){
+                    /**
+                     * Si matamos al monstruo, subimos la experiencia del jugador en 10 * nivel del monstruo
+                     */
+                   if (monstruo.reducirVida(this.getArmaIzquierda().getPuntosD())){
+                       this.experiencia += (10 * monstruo.getNivel());
+                   }
+                }
+            }
+        }
+        /**
+         * El máximo de experiencia es 1000. Si sobrepasamos ese nivel volvemos la experiencia a 1000.
+         */
+        if (this.experiencia >= 1000){
+            this.experiencia = 1000;
+        }
+        /**
+         * Cada vez que pasamos la experiencia de la centena subimos de nivel.
+         */
+        if (this.experiencia % 100 == 0){
+            subirNivel();
         }
     }
 }
