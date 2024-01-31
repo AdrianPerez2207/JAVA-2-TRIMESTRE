@@ -1,13 +1,13 @@
 package BLADE_OF_DARKNESS.Clases;
 
-public class Arma {
+public class Arma1 {
     public enum tipo{ESPADA, HACHA, BASTON, ARCO};
     private tipo tipoArma;
     private String nombre;
     private int puntosD; //Puntos de daño
     private boolean dosManos;
     /*CONSTRUCTOR-------------------------*/
-    public Arma(tipo tipoArma, String nombre, int puntosD, boolean dosManos) {
+    public Arma1(tipo tipoArma, String nombre, int puntosD, boolean dosManos) {
         this.tipoArma = tipoArma;
         this.nombre = nombre;
         this.puntosD = puntosD;

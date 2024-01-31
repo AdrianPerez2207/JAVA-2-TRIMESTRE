@@ -1,7 +1,7 @@
 package JUEGO_DEL_AHORCADO.TEST;
 import JUEGO_DEL_AHORCADO.JUEGO.Ahorcado;
 import java.util.Scanner;
-public class TestAhorcado {
+public class TestAhorcado1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //Nos creamos el objeto ahorcado.

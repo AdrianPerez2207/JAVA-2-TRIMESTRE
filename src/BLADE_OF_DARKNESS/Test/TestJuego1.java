@@ -1,16 +1,16 @@
 package BLADE_OF_DARKNESS.Test;
-import BLADE_OF_DARKNESS.Clases.Monstruo;
-import BLADE_OF_DARKNESS.Clases.Jugador;
-import BLADE_OF_DARKNESS.Clases.Arma;
+import BLADE_OF_DARKNESS.Clases.Monstruo1;
+import BLADE_OF_DARKNESS.Clases.Jugador1;
+import BLADE_OF_DARKNESS.Clases.Arma1;
 
-public class TestJuego {
+public class TestJuego1 {
     /**
      * Generamos método para el combate, pintamos el nombre del jugador y el monstruo contra el que va a combatir
      * Metemos en un bucle en combate para que luchen hasta que la salud de uno de los 2 sea 0 o menor que 0.
      * @param jugador Le pasamos un jugador a desear.
      * @param monstruo Le ponemos el monstruo con el que queremos que luche.
      */
-    public static void combate(Jugador jugador, Monstruo monstruo){
+    public static void combate(Jugador1 jugador, Monstruo1 monstruo){
         System.out.println("Nombre del jugador: " + jugador.getNombre());
         System.out.println("Nombre del monstruo: " + monstruo.getNombre());
 
@@ -35,18 +35,18 @@ public class TestJuego {
 
     public static void main(String[] args) {
         //Creamos el jugador, le equipamos las armas, y creamos los 4 Monstruos.
-        Jugador j1 = new Jugador("Derezord", Jugador.clase.MAGO);
-        Arma a1 = new Arma(Arma.tipo.BASTON, "PaloDelDiablo", 50, false);
-        Arma a2 = new Arma(Arma.tipo.ESPADA, "ESCALIBUR", 50, false);
+        Jugador1 j1 = new Jugador1("Derezord", Jugador1.clase.MAGO);
+        Arma1 a1 = new Arma1(Arma1.tipo.BASTON, "PaloDelDiablo", 50, false);
+        Arma1 a2 = new Arma1(Arma1.tipo.ESPADA, "ESCALIBUR", 50, false);
         j1.equipar(a1);
         j1.equipar(a2);
-        Monstruo m1 = new Monstruo("Gabriel", Monstruo.clase.GOBLIN, 80);
-        Monstruo m2 = new Monstruo("Alejandro", Monstruo.clase.TROLL, 80);
+        Monstruo1 m1 = new Monstruo1("Gabriel", Monstruo1.clase.GOBLIN, 80);
+        Monstruo1 m2 = new Monstruo1("Alejandro", Monstruo1.clase.TROLL, 80);
         //Modificamos los niveles para que no sean iguales.
         m2.setNivel(2);
-        Monstruo m3 = new Monstruo("Adrian", Monstruo.clase.SKRALL, 100);
+        Monstruo1 m3 = new Monstruo1("Adrian", Monstruo1.clase.SKRALL, 100);
         m3.setNivel(4);
-        Monstruo m4 = new Monstruo("Sobrino", Monstruo.clase.FANTASMA, 120);
+        Monstruo1 m4 = new Monstruo1("Sobrino", Monstruo1.clase.FANTASMA, 120);
         m3.setNivel(6);
         //Probamos que todos los métodos funcionen a través del combate.
         System.out.println("Combate número 1: ");

@@ -1,6 +1,6 @@
 package BLADE_OF_DARKNESS.Clases;
 
-public class Monstruo {
+public class Monstruo1 {
     private String nombre;
     public enum clase{GOBLIN, TROLL, SKRALL, DEMONIO, FANTASMA};
     private clase claseMonstruo;
@@ -9,7 +9,7 @@ public class Monstruo {
     private int puntosD; //Puntos de daño que hace el monstruo al golpear.
     /*CONSTRUCTOR------------------------*/
 
-    public Monstruo(String nombre, clase claseMonstruo, int puntosD) {
+    public Monstruo1(String nombre, clase claseMonstruo, int puntosD) {
         this.nombre = nombre;
         this.claseMonstruo = claseMonstruo;
         this.puntosD = puntosD;
@@ -103,7 +103,7 @@ public class Monstruo {
      * @param jugador Llamamos al método reducir vida de la clase jugador.
      *                Cuando el monstruo golpee, reducirá la vida lo que indique el golpe
      */
-    public void golpear(Jugador jugador){
+    public void golpear(Jugador1 jugador){
         jugador.reducirVida(this.puntosD);
     }
 }

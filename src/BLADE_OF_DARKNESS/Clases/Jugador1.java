@@ -1,16 +1,16 @@
 package BLADE_OF_DARKNESS.Clases;
 
-public class Jugador {
+public class Jugador1 {
     private String nombre;
     public enum clase{MAGO, BRUJO, BARBARO, CABALLERO};
     private clase claseJugador;
     private int nivel;
     private int experiencia;
     private int salud;
-    private Arma armaDerecha;
-    private Arma armaIzquierda;
+    private Arma1 armaDerecha;
+    private Arma1 armaIzquierda;
     /*CONSTRUCTOR------------------------*/
-    public Jugador(String nombre, clase claseJugador) {
+    public Jugador1(String nombre, clase claseJugador) {
         this.nombre = nombre;
         this.claseJugador = claseJugador;
         /*Por defecto*/
@@ -63,19 +63,19 @@ public class Jugador {
         this.salud = salud;
     }
 
-    public Arma getArmaDerecha() {
+    public Arma1 getArmaDerecha() {
         return armaDerecha;
     }
 
-    public void setArmaDerecha(Arma armaDerecha) {
+    public void setArmaDerecha(Arma1 armaDerecha) {
         this.armaDerecha = armaDerecha;
     }
 
-    public Arma getArmaIzquierda() {
+    public Arma1 getArmaIzquierda() {
         return armaIzquierda;
     }
 
-    public void setArmaIzquierda(Arma armaIzquierda) {
+    public void setArmaIzquierda(Arma1 armaIzquierda) {
         this.armaIzquierda = armaIzquierda;
     }
     /*toString---------------------*/
@@ -111,7 +111,7 @@ public class Jugador {
      *             Si tiene alguna mano ocupada, llevamos ese arma a la otra mano.
      * @return Devuelve true si el jugador ha sido equipado, false en caso contrario.
      */
-    public boolean equipar(Arma arma){
+    public boolean equipar(Arma1 arma){
         if (this.armaIzquierda == null && this.armaDerecha == null){
             this.armaIzquierda = arma;
             return true;
@@ -157,7 +157,7 @@ public class Jugador {
      *                Si el jugador tiene un arma de 2 manos, quitará el daño de una de las manos.
      *                 Comprobamos la mano que tiene ocupada.
      */
-    public void golpear(Monstruo monstruo){
+    public void golpear(Monstruo1 monstruo){
         if (this.getArmaDerecha() != null){
             monstruo.reducirVida(this.getArmaDerecha().getPuntosD());
             if (! this.getArmaDerecha().isDosManos()){
