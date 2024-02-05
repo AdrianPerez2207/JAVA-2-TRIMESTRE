@@ -1,17 +1,31 @@
 package BLADE_OF_DARKNESS.Clases;
 
-public class Monstruo1 extends Personaje{
-    public enum Clase {GOBLIN, TROLL, SKRALL, DEMONIO, FANTASMA};
-    protected Clase claseMonstruo;
-    protected int puntosD; //Puntos de daño que hace el monstruo al golpear.
-    /*CONSTRUCTOR------------------------*/
-
-    public Monstruo1(String nombre, Clase claseMonstruo, int puntosD) {
-        super(nombre, 1, 100);
-        this.claseMonstruo = claseMonstruo;
-        this.puntosD = puntosD;
+public class MonstruoFinalNivel extends Monstruo1{
+    private int golpeEspecial;
+    private int usosGolpeEspacial;
+    //Constructor--------------------
+    public MonstruoFinalNivel(String nombre, Clase claseMonstruo, int puntosD, int golpeEspecial) {
+        super(nombre, claseMonstruo, puntosD);
+        this.golpeEspecial = golpeEspecial;
+        this.usosGolpeEspacial = 3;
     }
-    /*GETTERS AND SETTERS---------------------*/
+    //Getters y Setters--------------------
+
+    public int getGolpeEspecial() {
+        return golpeEspecial;
+    }
+
+    public void setGolpeEspecial(int golpeEspecial) {
+        this.golpeEspecial = golpeEspecial;
+    }
+
+    public int getUsosGolpeEspacial() {
+        return usosGolpeEspacial;
+    }
+
+    public void setUsosGolpeEspacial(int usosGolpeEspacial) {
+        this.usosGolpeEspacial = usosGolpeEspacial;
+    }
 
     @Override
     public String getNombre() {
@@ -43,23 +57,26 @@ public class Monstruo1 extends Personaje{
         super.setSalud(salud);
     }
 
+    @Override
     public Clase getClaseMonstruo() {
-        return claseMonstruo;
+        return super.getClaseMonstruo();
     }
 
+    @Override
     public void setClaseMonstruo(Clase claseMonstruo) {
-        this.claseMonstruo = claseMonstruo;
+        super.setClaseMonstruo(claseMonstruo);
     }
 
+    @Override
     public int getPuntosD() {
-        return puntosD;
+        return super.getPuntosD();
     }
 
+    @Override
     public void setPuntosD(int puntosD) {
-        this.puntosD = puntosD;
+        super.setPuntosD(puntosD);
     }
-    /*toString---------------------*/
-
+    //toString------------------------
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Monstruo{");
@@ -68,11 +85,12 @@ public class Monstruo1 extends Personaje{
         sb.append(", nivel=").append(nivel);
         sb.append(", salud=").append(salud);
         sb.append(", puntosD=").append(puntosD);
+        sb.append(", golpeEspecial=").append(golpeEspecial);
+        sb.append(", usosGolpeEspecial=").append(usosGolpeEspacial);
         sb.append('}');
         return sb.toString();
     }
-    /*MÉTODOS--------------------------------*/
-
+    //Métodos-----------------------------
     @Override
     public void subirNivel() {
         super.subirNivel();
@@ -86,10 +104,16 @@ public class Monstruo1 extends Personaje{
     /**
      *
      * @param personaje Llamamos al método reducir vida de la clase jugador.
-     *                Cuando el monstruo golpee, reducirá la vida lo que indique el golpe
+     *                Cuando el monstruo golpee,
+     *                  reducirá la vida lo que indique el golpe y le sumamos el golpe especial.
      */
+
     @Override
     public void golpear(Personaje personaje) {
-        personaje.reducirVida(this.puntosD);
+        if (usosGolpeEspacial > 3){
+            personaje.reducirVida(puntosD + golpeEspecial);
+        } else {
+            super.golpear(personaje);
+        }
     }
 }

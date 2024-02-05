@@ -35,18 +35,18 @@ public class TestJuego1 {
 
     public static void main(String[] args) {
         //Creamos el jugador, le equipamos las armas, y creamos los 4 Monstruos.
-        Jugador1 j1 = new Jugador1("Derezord", Jugador1.clase.MAGO);
-        Arma1 a1 = new Arma1(Arma1.tipo.BASTON, "PaloDelDiablo", 50, false);
-        Arma1 a2 = new Arma1(Arma1.tipo.ESPADA, "ESCALIBUR", 50, false);
+        Jugador1 j1 = new Jugador1("Derezord", Jugador1.Clase.MAGO);
+        Arma1 a1 = new Arma1(Arma1.Tipo.BASTON, "PaloDelDiablo", 50, false);
+        Arma1 a2 = new Arma1(Arma1.Tipo.ESPADA, "ESCALIBUR", 50, false);
         j1.equipar(a1);
         j1.equipar(a2);
-        Monstruo1 m1 = new Monstruo1("Gabriel", Monstruo1.clase.GOBLIN, 80);
-        Monstruo1 m2 = new Monstruo1("Alejandro", Monstruo1.clase.TROLL, 80);
+        Monstruo1 m1 = new Monstruo1("Gabriel", Monstruo1.Clase.GOBLIN, 80);
+        Monstruo1 m2 = new Monstruo1("Alejandro", Monstruo1.Clase.TROLL, 80);
         //Modificamos los niveles para que no sean iguales.
         m2.setNivel(2);
-        Monstruo1 m3 = new Monstruo1("Adrian", Monstruo1.clase.SKRALL, 100);
+        Monstruo1 m3 = new Monstruo1("Adrian", Monstruo1.Clase.SKRALL, 100);
         m3.setNivel(4);
-        Monstruo1 m4 = new Monstruo1("Sobrino", Monstruo1.clase.FANTASMA, 120);
+        Monstruo1 m4 = new Monstruo1("Sobrino", Monstruo1.Clase.FANTASMA, 120);
         m3.setNivel(6);
         //Probamos que todos los métodos funcionen a través del combate.
         System.out.println("Combate número 1: ");

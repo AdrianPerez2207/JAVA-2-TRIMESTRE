@@ -1,66 +1,63 @@
 package BLADE_OF_DARKNESS.Clases;
 
-public class Jugador1 {
-    private String nombre;
-    public enum clase{MAGO, BRUJO, BARBARO, CABALLERO};
-    private clase claseJugador;
-    private int nivel;
+public class Jugador1 extends  Personaje{
+    public enum Clase {MAGO, BRUJO, BARBARO, CABALLERO};
+    private Clase claseJugador;
     private int experiencia;
-    private int salud;
     private Arma1 armaDerecha;
     private Arma1 armaIzquierda;
     /*CONSTRUCTOR------------------------*/
-    public Jugador1(String nombre, clase claseJugador) {
-        this.nombre = nombre;
+
+    public Jugador1(String nombre, Clase claseJugador) {
+        super(nombre, 1, 200);
         this.claseJugador = claseJugador;
-        /*Por defecto*/
-        this.nivel = 1;
-        this.salud = 200;
         this.experiencia = 0;
         this.armaDerecha = null;
         this.armaIzquierda = null;
-
     }
     /*GETTERS AND SETTERS---------------------*/
 
+    @Override
     public String getNombre() {
-        return nombre;
+        return super.getNombre();
     }
 
+    @Override
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        super.setNombre(nombre);
     }
 
-    public clase getClaseJugador() {
+    @Override
+    public int getNivel() {
+        return super.getNivel();
+    }
+
+    @Override
+    public void setNivel(int nivel) {
+        super.setNivel(nivel);
+    }
+
+    @Override
+    public int getSalud() {
+        return super.getSalud();
+    }
+
+    @Override
+    public void setSalud(int salud) {
+        super.setSalud(salud);
+    }
+
+    public Clase getClaseJugador() {
         return claseJugador;
     }
-
-    public void setClaseJugador(clase claseJugador) {
+    public void setClaseJugador(Clase claseJugador) {
         this.claseJugador = claseJugador;
     }
-
-    public int getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
-    }
-
     public int getExperiencia() {
         return experiencia;
     }
-
     public void setExperiencia(int experiencia) {
         this.experiencia = experiencia;
-    }
-
-    public int getSalud() {
-        return salud;
-    }
-
-    public void setSalud(int salud) {
-        this.salud = salud;
     }
 
     public Arma1 getArmaDerecha() {
@@ -95,14 +92,9 @@ public class Jugador1 {
     }
     /*MÉTODOS--------------------------------*/
 
-    /**
-     * Subimos de nivel hasta un máximo de 10, incluyendo la salud.
-     */
-    public void subirNivel(){
-        if (nivel < 10){
-            this.nivel++;
-            this.salud += Math.pow(2.5, this.nivel);
-        }
+    @Override
+    public void subirNivel() {
+        super.subirNivel();
     }
 
     /**
@@ -135,39 +127,29 @@ public class Jugador1 {
         return this.salud;
     }
 
-    /**
-     *
-     * @param puntosD Restamos a la salud del jugador y los puntos de vida que indique la variable.
-     * @return Si tras restar la salud del jugador es mayor que 0, devuelve false (sigue vivo),
-     *        si es menor que 0, devuelve true (muerto).
-     */
-    public boolean reducirVida(int puntosD){
-        this.salud -= puntosD;
-        if (this.salud > 0){
-            return false;
-        } else {
-            this.salud = 0;
-            return true;
-        }
+    @Override
+    public boolean reducirVida(int puntosD) {
+        return super.reducirVida(puntosD);
     }
     /**
      *
-     * @param monstruo Llamamos al método reducir vida de la clase Monstruo.
+     * @param personaje Llamamos al método reducir vida de la clase Monstruo.
      *                Cuando el jugador golpee, reducirá la vida lo que indique el golpe del arma que posee.
      *                Si el jugador tiene un arma de 2 manos, quitará el daño de una de las manos.
      *                 Comprobamos la mano que tiene ocupada.
      */
-    public void golpear(Monstruo1 monstruo){
+    @Override
+    public void golpear(Personaje personaje) {
         if (this.getArmaDerecha() != null){
-            monstruo.reducirVida(this.getArmaDerecha().getPuntosD());
+            personaje.reducirVida(this.getArmaDerecha().getPuntosD());
             if (! this.getArmaDerecha().isDosManos()){
                 if (this.getArmaIzquierda() != null){
                     /**
                      * Si matamos al monstruo, subimos la experiencia del jugador en 10 * nivel del monstruo
                      */
-                   if (monstruo.reducirVida(this.getArmaIzquierda().getPuntosD())){
-                       this.experiencia += (10 * monstruo.getNivel());
-                   }
+                    if (personaje.reducirVida(this.getArmaIzquierda().getPuntosD())){
+                        this.experiencia += (10 * personaje.getNivel());
+                    }
                 }
             }
         }
