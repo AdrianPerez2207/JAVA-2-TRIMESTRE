@@ -8,18 +8,19 @@ public class TestJuego {
         //Creamos un objeto partida y le introducimos el jugador cómo parámetro
         Partida game = new Partida(jugador);
         //Iniciamos la partida
-        game.inicarPartida();
-        System.out.println("El jugador: " + jugador);
+        game.iniciarPartida();
         /**
          * Simulamos 30 turnos de una partida
          */
         for (int i = 0; i < 30; i++) {
-            game.turnoJugador();
             if (game.turnoJugador()){
                 System.out.println("El jugador ha matado a todos los monstruos!! Gana la partida!!");
                 break;
             }
-            game.turnoEnemigos();
+            if (game.turnoEnemigos()){
+                System.out.println("El Jugador ha muerto.. Pierde la partida..");
+                break;
+            }
         }
     }
 }

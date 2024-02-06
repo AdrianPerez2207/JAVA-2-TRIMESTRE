@@ -1,5 +1,7 @@
 package BLADE_OF_DARKNESS.Clases;
 
+import java.util.Objects;
+
 public class Monstruo1 extends Personaje{
     public enum Clase {GOBLIN, TROLL, SKRALL, DEMONIO, FANTASMA};
     protected Clase claseMonstruo;
@@ -71,6 +73,21 @@ public class Monstruo1 extends Personaje{
         sb.append('}');
         return sb.toString();
     }
+    //equals---------------
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Monstruo1 monstruo1 = (Monstruo1) o;
+        return puntosD == monstruo1.puntosD;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(puntosD);
+    }
+
     /*MÉTODOS--------------------------------*/
 
     @Override

@@ -11,7 +11,7 @@ public class Partida {
     public Partida(Jugador1 jugador) {
         this.jugador = jugador;
         this.monstruos = new ArrayList<>();
-        inicarPartida();
+        iniciarPartida();
     }
     //Métodos---------
 
@@ -19,16 +19,17 @@ public class Partida {
      * Añadimos al ArrayList 100 monstruos iguales y 2 final nivel
      * Al jugador le equipamos un arma.
      */
-    public void inicarPartida() {
+    public void iniciarPartida() {
         for (int i = 0; i < 100; i++) {
-            if (1 <= 97){
-                Monstruo1 monstruo = new Monstruo1("Adrián", Monstruo1.Clase.FANTASMA, 100);
+            if (i <= 97){
+                Monstruo1 monstruo = new Monstruo1("Adrián" + i, Monstruo1.Clase.FANTASMA, 50 + i);
                 monstruos.add(monstruo);
             } else {
-                MonstruoFinalNivel monstruoFinal = new MonstruoFinalNivel("Javier", Monstruo1.Clase.DEMONIO, 200, 150);
+                MonstruoFinalNivel monstruoFinal = new MonstruoFinalNivel("Javier" + i, Monstruo1.Clase.DEMONIO, 200 + i, 150);
+                monstruos.add(monstruoFinal);
             }
         }
-        jugador.equipar(jugador.getArmaDerecha());
+        jugador.equipar(new Arma1(Arma1.Tipo.ARCO,"Legolas", 175,true));
     }
 
     /**
@@ -39,7 +40,11 @@ public class Partida {
      */
     public boolean turnoJugador(){
         for (Monstruo1 monstruo : monstruos){
+            System.out.println("Turno del Jugador: " + jugador.getNombre() + " con salud: " + jugador.getSalud());
+            System.out.println("Monstruo: " + monstruo.getNombre() + " con salud: " + monstruo.getSalud());
+
             jugador.golpear(monstruo);
+            System.out.println("Salud del monstruo: " + monstruo.getSalud());
             if (monstruo.getSalud() <= 0){
                 monstruos.remove(monstruo);
             } else if (monstruos == null) {
@@ -55,7 +60,11 @@ public class Partida {
      */
     public boolean turnoEnemigos(){
         for (Monstruo1 monstruo : monstruos){
+            System.out.println("Turno del Monstruo: " + monstruo.getNombre() + " con salud: " + monstruo.getSalud());
+            System.out.println("Jugador: " + jugador.getNombre() + " con salud: " + jugador.getSalud());
+
             monstruo.golpear(jugador);
+            System.out.println("salud del jugador: " + jugador.getSalud());
             if (jugador.getSalud() <= 0){
                 return true;
             }
