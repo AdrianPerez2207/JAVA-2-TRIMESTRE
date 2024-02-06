@@ -115,5 +115,6 @@ public class MonstruoFinalNivel extends Monstruo1{
         } else {
             super.golpear(personaje);
         }
+        usosGolpeEspacial--;
     }
 }
