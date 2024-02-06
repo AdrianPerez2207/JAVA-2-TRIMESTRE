@@ -11,6 +11,9 @@ public class TestJuego {
         game.iniciarPartida();
         /**
          * Simulamos 30 turnos de una partida
+         * Crear combate por turnos, pelear contra el primer monstruo, si el Jugador gana, eliminamos al Monstruo el Array
+         * Monstruo n = part.getMonstruos().get(0); El jugador pelea siempre con el monstruo en la posicion '0'.
+         * Generar condición para que cuando no queden Monstruos en el Array deje de luchar
          */
         for (int i = 0; i < 30; i++) {
             if (game.turnoJugador()){

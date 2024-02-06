@@ -25,6 +25,9 @@ public class Partida {
                 Monstruo1 monstruo = new Monstruo1("Adrián" + i, Monstruo1.Clase.FANTASMA, 50 + i);
                 monstruos.add(monstruo);
             } else {
+                /**
+                 * Quitar el remove del FOR y llevarlo al combate por turnos, no se puede eliminar nada de ArrayList mientras recorres el mismo Array
+                 */
                 MonstruoFinalNivel monstruoFinal = new MonstruoFinalNivel("Javier" + i, Monstruo1.Clase.DEMONIO, 200 + i, 150);
                 monstruos.add(monstruoFinal);
             }
