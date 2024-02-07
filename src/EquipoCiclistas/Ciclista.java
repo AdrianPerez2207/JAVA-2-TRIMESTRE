@@ -64,7 +64,5 @@ public abstract class Ciclista {
     }
 
     //Método--------------
-    public String imprimirTipo() {
-        return "";
-    }
+    public abstract String imprimirTipo();
 }
