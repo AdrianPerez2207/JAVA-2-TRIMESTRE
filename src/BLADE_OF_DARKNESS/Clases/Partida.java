@@ -13,6 +13,24 @@ public class Partida {
         this.monstruos = new ArrayList<>();
         iniciarPartida();
     }
+    //Getters and setters---------
+
+    public Jugador1 getJugador() {
+        return jugador;
+    }
+
+    public void setJugador(Jugador1 jugador) {
+        this.jugador = jugador;
+    }
+
+    public ArrayList<Monstruo1> getMonstruos() {
+        return monstruos;
+    }
+
+    public void setMonstruos(ArrayList<Monstruo1> monstruos) {
+        this.monstruos = monstruos;
+    }
+
     //Métodos---------
 
     /**
@@ -39,34 +57,43 @@ public class Partida {
      * Recorremos el Array de monstruos y el jugador golpea al primero con vida
      * Si el jugador consigue vencer a todos los monstruos, gana la partida.
      */
-    public boolean turnoJugador(){
-        for (Monstruo1 monstruo : monstruos){
-            System.out.println("Turno del Jugador: " + jugador.getNombre() + " con salud: " + jugador.getSalud());
-            System.out.println("Monstruo: " + monstruo.getNombre() + " con salud: " + monstruo.getSalud());
+    public boolean turnoJugador(Monstruo1 monstruo){
+        System.out.println("Turno del Jugador: " + jugador.getNombre() + " con salud: " + jugador.getSalud());
+        System.out.println("Monstruo: " + monstruo.getNombre() + " con salud: " + monstruo.getSalud());
+        System.out.println();
 
-            jugador.golpear(monstruo);
-            System.out.println("Salud del monstruo: " + monstruo.getSalud());
-            } if (monstruos == null) {
-               return true;
+        jugador.golpear(monstruo);
+        if (monstruo.getSalud() <= 0){
+            jugador.tomarPocion(800);
+            System.out.println("El monstruo ha muerto");
+            System.out.println();
+            return false;
         }
-        return false;
+        System.out.println("Salud del monstruo: " + monstruo.getSalud());
+        System.out.println();
+        if (monstruos == null) {
+            return false;
+        }
+        return true;
     }
 
     /**
      * Recorremos el Array de montruos y uno de ellos golpea al jugador.
      * Si el jugador queda sin vida, pierde la partida.
      */
-    public boolean turnoEnemigos(){
-        for (Monstruo1 monstruo : monstruos){
-            System.out.println("Turno del Monstruo: " + monstruo.getNombre() + " con salud: " + monstruo.getSalud());
-            System.out.println("Jugador: " + jugador.getNombre() + " con salud: " + jugador.getSalud());
+    public boolean turnoEnemigos(Monstruo1 monstruo){
 
-            monstruo.golpear(jugador);
-            System.out.println("Salud del jugador: " + jugador.getSalud());
-            if (jugador.getSalud() <= 0){
-                return true;
-            }
+        System.out.println("Turno del Monstruo: " + monstruo.getNombre() + " con salud: " + monstruo.getSalud());
+        System.out.println("Jugador: " + jugador.getNombre() + " con salud: " + jugador.getSalud());
+        System.out.println();
+
+        monstruo.golpear(jugador);
+
+        System.out.println("Salud del jugador: " + jugador.getSalud());
+        System.out.println();
+        if (jugador.getSalud() <= 0){
+            return false;
         }
-        return false;
+        return true;
     }
 }

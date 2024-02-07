@@ -121,8 +121,9 @@ public class Jugador1 extends  Personaje{
      * @return Devuelve la suma de la salud del jugador y y los puntos de salud de la poción.
      */
     public int tomarPocion(int puntosSalud){
-        if (this.salud < 10000){
             this.salud += puntosSalud;
+        if (this.salud + puntosSalud > 10000){
+            this.salud = 10000;
         }
         return this.salud;
     }
@@ -140,30 +141,35 @@ public class Jugador1 extends  Personaje{
      */
     @Override
     public void golpear(Personaje personaje) {
-        if (this.getArmaDerecha() != null){
+        if (this.getArmaDerecha() != null) {
             personaje.reducirVida(this.getArmaDerecha().getPuntosD());
-            if (! this.getArmaDerecha().isDosManos()){
-                if (this.getArmaIzquierda() != null){
-                    /**
-                     * Si matamos al monstruo, subimos la experiencia del jugador en 10 * nivel del monstruo
-                     */
-                    if (personaje.reducirVida(this.getArmaIzquierda().getPuntosD())){
-                        this.experiencia += (10 * personaje.getNivel());
-                    }
+            if (!this.getArmaDerecha().isDosManos()) {
+                if (this.getArmaIzquierda() != null) {
+                    personaje.reducirVida(this.getArmaDerecha().getPuntosD());
                 }
             }
         }
         /**
+         * Si matamos al monstruo, subimos la experiencia del jugador en 10 * nivel del monstruo
+         */
+        if (personaje.reducirVida(this.getArmaIzquierda().getPuntosD())) {
+            this.experiencia += (10 * personaje.getNivel());
+        }
+        /**
          * El máximo de experiencia es 1000. Si sobrepasamos ese nivel volvemos la experiencia a 1000.
          */
-        if (this.experiencia >= 1000){
+        if (this.experiencia >= 1000) {
             this.experiencia = 1000;
         }
         /**
-         * Cada vez que pasamos la experiencia de la centena subimos de nivel.
+         * Calculamos la centena de la experiencia, si es mayor que el nivel, subimos nivel.
+         * Empezamos en el nivel 1, si subimos de experiencia al 100, subimos de nivel.
+         * El jugador terminaría en el nivel 11.
          */
-        if (this.experiencia % 100 == 0){
+        int centena = this.experiencia / 100;
+        if (centena > this.nivel - 1){
             subirNivel();
         }
+
     }
 }
