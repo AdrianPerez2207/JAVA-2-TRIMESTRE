@@ -37,9 +37,7 @@ public class Partida {
 
     /**
      * Recorremos el Array de monstruos y el jugador golpea al primero con vida
-     * Si el jugador consigue matar al monstruo lo quitamos del Array de la partida
      * Si el jugador consigue vencer a todos los monstruos, gana la partida.
-     * En caso contrario si el jugador se queda sin vida, muere y pierde la partida..
      */
     public boolean turnoJugador(){
         for (Monstruo1 monstruo : monstruos){
@@ -48,11 +46,8 @@ public class Partida {
 
             jugador.golpear(monstruo);
             System.out.println("Salud del monstruo: " + monstruo.getSalud());
-            if (monstruo.getSalud() <= 0){
-                monstruos.remove(monstruo);
-            } else if (monstruos == null) {
+            } if (monstruos == null) {
                return true;
-            }
         }
         return false;
     }
@@ -67,7 +62,7 @@ public class Partida {
             System.out.println("Jugador: " + jugador.getNombre() + " con salud: " + jugador.getSalud());
 
             monstruo.golpear(jugador);
-            System.out.println("salud del jugador: " + jugador.getSalud());
+            System.out.println("Salud del jugador: " + jugador.getSalud());
             if (jugador.getSalud() <= 0){
                 return true;
             }
