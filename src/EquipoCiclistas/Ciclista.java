@@ -3,9 +3,9 @@ package EquipoCiclistas;
 import java.util.Objects;
 
 public abstract class Ciclista {
-    private Integer identificador;
-    private String nombreCiclista;
-    private Double tiempoAcumulado;
+    protected Integer identificador;
+    protected String nombreCiclista;
+    protected Double tiempoAcumulado;
 
     //Constructor--------------
 
@@ -49,20 +49,6 @@ public abstract class Ciclista {
         sb.append('}');
         return sb.toString();
     }
-    //equals--------------
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ciclista ciclista = (Ciclista) o;
-        return Objects.equals(identificador, ciclista.identificador) && Objects.equals(nombreCiclista, ciclista.nombreCiclista) && Objects.equals(tiempoAcumulado, ciclista.tiempoAcumulado);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(identificador, nombreCiclista, tiempoAcumulado);
-    }
-
-    //Método--------------
+    //Métodos--------------
     public abstract String imprimirTipo();
 }

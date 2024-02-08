@@ -10,10 +10,11 @@ public class Equipo {
 
     //Constructor----------
 
-    public Equipo(ArrayList<Ciclista> ciclistas, String nombreEquipo, String paisEquipo) {
-        this.ciclistas = ciclistas;
+    public Equipo(String nombreEquipo, String paisEquipo) {
+        this.ciclistas = new ArrayList<>();
         this.nombreEquipo = nombreEquipo;
         this.paisEquipo = paisEquipo;
+        this.sumaTiempos = 0.0;
     }
     //Getters and setters----------
     public ArrayList<Ciclista> getCiclistas() {
