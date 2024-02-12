@@ -6,7 +6,6 @@ public abstract class Ingrediente {
 
     //Constructor-----------------------------------
 
-
     //Getters and setters---------------
     public String getNombre() {
         return nombre;

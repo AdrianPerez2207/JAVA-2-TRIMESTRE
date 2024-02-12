@@ -11,7 +11,7 @@ public class Hamburguesa extends Comida{
     public Hamburguesa(String fechaCaducidad) {
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate localDate = LocalDate.parse(fechaCaducidad, formatter);
+            this.fechaCaducidad = LocalDate.parse(fechaCaducidad, formatter);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }

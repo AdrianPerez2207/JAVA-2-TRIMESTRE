@@ -36,9 +36,9 @@ public class Patata extends Comida implements Cocinable {
 
     @Override
     public Double obtenerPrecio() {
-        if (Patata.FRITA == 1){
+        if (this.estado == FRITA ){
             return 1.10;
-        } else if (Patata.COCIDA == 2) {
+        } else if (this.estado == COCIDA) {
             return 0.80;
         } else {
             return 0.90;

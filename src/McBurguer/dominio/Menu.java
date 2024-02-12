@@ -31,15 +31,6 @@ public class Menu {
     public void setNumeroIngredientes(int numeroIngredientes) {
         this.numeroIngredientes = numeroIngredientes;
     }
-
-    public ArrayList<Ingrediente> getListaIngredientes() {
-        return listaIngredientes;
-    }
-
-    public void setListaIngredientes(ArrayList<Ingrediente> listaIngredientes) {
-        this.listaIngredientes = listaIngredientes;
-    }
-
     //toString----------------
 
     @Override

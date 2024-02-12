@@ -14,6 +14,7 @@ public abstract class Bebida extends Ingrediente{
     public void setRefrigerada(boolean refrigerada) {
         this.refrigerada = refrigerada;
     }
+
     //Métodos---------
 
     /**
