@@ -7,7 +7,7 @@ public class ProductoFragil extends Producto{
 
     public ProductoFragil(String nombre, double peso, int nivelFragil) {
         super(nombre, peso);
-        this.nivelFragil = 0;
+        this.nivelFragil = nivelFragil;
     }
 
     public int getNivelFragil() {

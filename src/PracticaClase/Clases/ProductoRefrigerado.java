@@ -7,7 +7,7 @@ public class ProductoRefrigerado extends Producto{
 
     public ProductoRefrigerado(String nombre, double peso, int nivelRefrigeracion) {
         super(nombre, peso);
-        this.nivelRefrigeracion = 0;
+        this.nivelRefrigeracion = nivelRefrigeracion;
     }
     //Getters and setters
 
