@@ -1,10 +1,14 @@
 package McBurguer.dominio;
 
 public abstract class Ingrediente {
-    private String nombre; //Ingrediente concreto
-    private String tipoIngrediente; //Si es comida o bebida
+    protected String nombre; //Ingrediente concreto
+    protected String tipoIngrediente; //Si es comida o bebida
 
     //Constructor-----------------------------------
+
+    public Ingrediente() {
+
+    }
 
     //Getters and setters---------------
     public String getNombre() {

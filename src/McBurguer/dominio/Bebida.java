@@ -4,6 +4,7 @@ public abstract class Bebida extends Ingrediente{
     private boolean refrigerada;
 
     public Bebida() {
+
         this.refrigerada = false;
     }
 
