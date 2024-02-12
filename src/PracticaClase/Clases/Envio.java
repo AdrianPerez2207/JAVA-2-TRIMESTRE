@@ -111,6 +111,7 @@ public class Envio {
      * @return Calculamos los dias con la clase "Period", calculamos solo los dias que han transcurrido.
      */
     public int diasTranscurridos(){
-        return Period.between(fechaSalida, fechaLlegada).getDays();
+        Period periodo = Period.between(this.fechaSalida, this.fechaLlegada);
+        return periodo.getDays();
     }
 }
