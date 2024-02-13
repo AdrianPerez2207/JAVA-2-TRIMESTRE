@@ -10,9 +10,9 @@ public class Menu {
 
     //Constructor--------------
     public Menu() {
-        this.numeroMenus = 0;
         this.numeroIngredientes = 0;
         this.listaIngredientes = new ArrayList<Ingrediente>();
+        this.numeroMenus++;
     }
     //Getters and setters---------
 

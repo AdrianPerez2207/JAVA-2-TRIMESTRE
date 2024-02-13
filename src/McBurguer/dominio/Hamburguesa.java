@@ -8,6 +8,7 @@ public class Hamburguesa extends Comida{
 
     private LocalDate fechaCaducidad;
 
+
     public Hamburguesa(String fechaCaducidad) {
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -15,6 +16,8 @@ public class Hamburguesa extends Comida{
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
+        this.nombre = "Hamburguesa";
+        this.tipoIngrediente = "Comida";
     }
 
     //Métodos-------------------
@@ -28,7 +31,7 @@ public class Hamburguesa extends Comida{
 
     @Override
     public Double obtenerPrecio() {
-        Period periodo = Period.between(fechaCaducidad, LocalDate.now());
+        Period periodo = Period.between(LocalDate.now(), fechaCaducidad);
         int dias = (periodo.getYears() * 365) + (periodo.getMonths() * 12) + periodo.getDays();
 
         if (dias == 1){

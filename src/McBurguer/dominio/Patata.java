@@ -8,7 +8,10 @@ public class Patata extends Comida implements Cocinable {
     public Patata() {
         super();
         this.estado = CRUDA;
+        this.nombre = "Patata";
+        this.tipoIngrediente = "Comida";
     }
+
     //Getters y Setters---------------------
 
     public int getEstado() {
@@ -21,6 +24,7 @@ public class Patata extends Comida implements Cocinable {
     //Métodos---------------------
     @Override
     public void freir() {
+
         this.estado = FRITA;
     }
 
