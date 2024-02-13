@@ -8,6 +8,12 @@ public class Hamburguesa extends Comida{
 
     private LocalDate fechaCaducidad;
 
+    /**
+     * En el constructor le damos formato a la fecha con "DateTimeFormatter"
+     * @param fechaCaducidad
+     * Le damos el nombre y el tipo de ingrediente
+     */
+
 
     public Hamburguesa(String fechaCaducidad) {
         try {

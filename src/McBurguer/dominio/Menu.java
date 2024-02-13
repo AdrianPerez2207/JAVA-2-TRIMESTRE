@@ -9,6 +9,10 @@ public class Menu {
     private ArrayList<Ingrediente> listaIngredientes;
 
     //Constructor--------------
+
+    /**
+     * En el constructor inicializamos las variables, y "numeroMenus" lo aumentamos cada vez que llamamos al constructor
+     */
     public Menu() {
         this.numeroIngredientes = 0;
         this.listaIngredientes = new ArrayList<Ingrediente>();
@@ -57,6 +61,7 @@ public class Menu {
 
     /**
      * añade una comida o una bebida al menú.
+     * Aumentamos el número de ingredientes cada vez que llamamos al método
      */
     public void addComida(Comida comida){
         this.listaIngredientes.add(comida);
