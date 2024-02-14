@@ -8,7 +8,10 @@ public class Patata extends Comida implements Cocinable {
     public Patata() {
         super();
         this.estado = CRUDA;
+        this.nombre = "Patata";
+        this.tipoIngrediente = "Comida";
     }
+
     //Getters y Setters---------------------
 
     public int getEstado() {
@@ -19,8 +22,15 @@ public class Patata extends Comida implements Cocinable {
     }
 
     //Métodos---------------------
+
+    /**
+     *
+     * Implementamos los métodos de la interfaz cocinable
+     * En cada uno de ellos, cuando llamamos al método, cambiamos la variable estado.
+     */
     @Override
     public void freir() {
+
         this.estado = FRITA;
     }
 
@@ -33,6 +43,11 @@ public class Patata extends Comida implements Cocinable {
     public void asar() {
         this.estado = ASADA;
     }
+
+    /**
+     * Calculamos el precio de la patata según el estado que tenga
+     * @return El precio de la forma de ser cocinada
+     */
 
     @Override
     public Double obtenerPrecio() {
