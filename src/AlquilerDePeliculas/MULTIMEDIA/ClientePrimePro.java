@@ -19,11 +19,11 @@ public class ClientePrimePro extends Cliente{
     //Métodos---------
     @Override
     public boolean esPro() {
-        return false;
+        return true;
     }
 
     @Override
     public double getPrecioMensual() {
-        return precioMensual;
+        return this.precioMensual;
     }
 }

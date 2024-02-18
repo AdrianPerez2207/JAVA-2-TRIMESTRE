@@ -25,6 +25,6 @@ public class ClientePrime extends Cliente{
 
     @Override
     public double getPrecioMensual() {
-        return precioMensual;
+        return this.precioMensual;
     }
 }
