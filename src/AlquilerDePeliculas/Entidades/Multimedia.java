@@ -1,11 +1,11 @@
-package AlquilerDePeliculas.MULTIMEDIA;
+package AlquilerDePeliculas.Entidades;
 
 import java.util.Objects;
 
 public class Multimedia {
 
     protected long codigo;
-    protected static long autoincremento = 1;
+    protected static long autoincremento  = 1;
     protected String titulo;
     protected boolean esPlus;
     protected double precio;
@@ -14,6 +14,7 @@ public class Multimedia {
     //Constructor------
 
     public Multimedia() {
+        this.codigo = autoincremento++;
     }
 
     public Multimedia(String titulo, boolean plus, double precio) {

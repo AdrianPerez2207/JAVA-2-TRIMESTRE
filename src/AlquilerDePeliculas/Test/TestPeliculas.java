@@ -1,8 +1,9 @@
 package AlquilerDePeliculas.Test;
 
-import AlquilerDePeliculas.MULTIMEDIA.*;
+import AlquilerDePeliculas.Entidades.*;
+import AlquilerDePeliculas.Servicios.PrimeVideo;
 
-public class TestMultimedia {
+public class TestPeliculas {
 
     public static void main(String[] args) {
 
@@ -23,7 +24,7 @@ public class TestMultimedia {
          * Creamos 1.000.000 de clientes (25% son Pro)
          */
         for (int i = 0; i < 1000000; i++) {
-            if (i < (1000000 / 4)){
+            if (i < 250000){
                 Cliente clientePlus = new ClientePrimePro("982387624H" + (i + 1), "ClientePro" + (i + 1), "jaroso@gmail.com");
                 primeVideo.addSuscriptor(clientePlus);
             } else {
@@ -34,6 +35,13 @@ public class TestMultimedia {
         /**
          * Simulamos que los Clientes ven las 40 primeras películas
          */
+        for (Cliente cliente : primeVideo.getSuscriptores()){
+            for (int i = 0; i < 40; i++) {
+                primeVideo.ver(primeVideo.getCatalogo().get(i), cliente);
+            }
+        }
+        System.out.println("Ganancias totales: ");
+        System.out.println(primeVideo.getGanancias() + "€");
 
     }
 }

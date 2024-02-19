@@ -1,4 +1,4 @@
-package AlquilerDePeliculas.MULTIMEDIA;
+package AlquilerDePeliculas.Entidades;
 
 public class ClientePrime extends Cliente{
 

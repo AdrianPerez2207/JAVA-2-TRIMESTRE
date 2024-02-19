@@ -1,4 +1,7 @@
-package AlquilerDePeliculas.MULTIMEDIA;
+package AlquilerDePeliculas.Servicios;
+
+import AlquilerDePeliculas.Entidades.Cliente;
+import AlquilerDePeliculas.Entidades.Multimedia;
 
 import java.util.ArrayList;
 
@@ -7,6 +10,16 @@ public class PrimeVideo {
     private ArrayList<Multimedia> catalogo;
     private ArrayList<Cliente> suscriptores;
     private double ganancias;
+    //Getters and Setters---------
+
+    public ArrayList<Multimedia> getCatalogo() {
+        return catalogo;
+    }
+
+    public ArrayList<Cliente> getSuscriptores() {
+        return suscriptores;
+    }
+
 
     //Constructor---------
 
@@ -62,6 +75,7 @@ public class PrimeVideo {
         for (Cliente cliente : this.suscriptores) {
             gananciasTotales += cliente.getPrecioMensual() * 12;
         }
+        gananciasTotales += this.ganancias;
         return gananciasTotales;
     }
 

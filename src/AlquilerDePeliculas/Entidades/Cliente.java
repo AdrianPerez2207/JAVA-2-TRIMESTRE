@@ -1,4 +1,4 @@
-package AlquilerDePeliculas.MULTIMEDIA;
+package AlquilerDePeliculas.Entidades;
 
 import java.util.Objects;
 
