@@ -20,6 +20,8 @@ public abstract class Documento implements Prestable {
         this.isbn = isbn;
         this.titulo = titulo;
         this.numPaginas = numPaginas;
+        this.fechaPrestamo = LocalDate.now();
+        this.prestadoA = null;
     }
     //Getters and setters------
     public String getIsbn() {

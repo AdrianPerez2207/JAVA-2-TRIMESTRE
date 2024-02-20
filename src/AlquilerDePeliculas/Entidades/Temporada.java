@@ -39,4 +39,35 @@ public class Temporada {
     public ArrayList<Episodio> getEpisodios() {
         return episodios;
     }
+
+    //toString--------
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Temporada{");
+        sb.append("numero=").append(numero);
+        sb.append(", episodios=").append(episodios);
+        sb.append(", serie=").append(serie);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    //Métodos----------
+    public void addEpisodio(Episodio episodio){
+        episodio.setTemporada(this);
+        this.episodios.add(episodio);
+    }
+    public void delEpisodio(Episodio episodio){
+        episodio.setTemporada(this);
+        this.episodios.remove(episodio);
+    }
+
+    /**
+     *
+     * @return el número de episodios que tiene la temporada
+     */
+
+    public int getNumeroEpisodios(){
+        return this.episodios.size();
+    }
 }

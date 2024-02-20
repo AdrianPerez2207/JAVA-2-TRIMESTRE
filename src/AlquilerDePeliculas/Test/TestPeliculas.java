@@ -23,7 +23,7 @@ public class TestPeliculas {
         /**
          * Creamos 1.000.000 de clientes (25% son Pro)
          */
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 1000000000; i++) {
             if (i < 250000){
                 Cliente clientePlus = new ClientePrimePro("982387624H" + (i + 1), "ClientePro" + (i + 1), "jaroso@gmail.com");
                 primeVideo.addSuscriptor(clientePlus);
