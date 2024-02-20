@@ -3,6 +3,7 @@ package BIBLIOTECA.ENTIDADES;
 import BIBLIOTECA.INTERFACES.Prestable;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public abstract class Documento implements Prestable {
@@ -14,6 +15,7 @@ public abstract class Documento implements Prestable {
     protected Usuario prestadoA;
     protected LocalDate fechaPrestamo;
     protected Integer numPaginas;
+    protected ArrayList<Autor> autores = new ArrayList<>();
     //Constructor--------
 
     public Documento(String isbn, String titulo, Integer numPaginas) {
@@ -62,6 +64,10 @@ public abstract class Documento implements Prestable {
 
     public void setNumPaginas(Integer numPaginas) {
         this.numPaginas = numPaginas;
+    }
+
+    public ArrayList<Autor> getAutores() {
+        return autores;
     }
     //toString-------------
 
@@ -129,5 +135,12 @@ public abstract class Documento implements Prestable {
         } else {
             return true;
         }
+    }
+
+    public void addAutores(Autor autor){
+        this.autores.add(autor);
+    }
+    public void delAutores(Autor autor){
+        this.autores.remove(autor);
     }
 }

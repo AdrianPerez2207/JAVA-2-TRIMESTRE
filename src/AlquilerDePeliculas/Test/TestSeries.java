@@ -22,15 +22,17 @@ public class TestSeries {
                     t.addEpisodio(new Episodio("Episodio " + k, 55));
                 }
                 serie.addTemporada(t);
+
             }
             primeVideo.addMultimedia(serie);
+            System.out.println(serie);
         }
 
         /**
          * Creamos 1000 clientes (25% son Pro)
          */
         for (int i = 0; i < 1000; i++) {
-            if (i < 2500){
+            if (i < 250){
                 Cliente clientePlus = new ClientePrimePro("982387624H" + (i + 1), "ClientePro" + (i + 1), "jaroso@gmail.com");
                 primeVideo.addSuscriptor(clientePlus);
             } else {

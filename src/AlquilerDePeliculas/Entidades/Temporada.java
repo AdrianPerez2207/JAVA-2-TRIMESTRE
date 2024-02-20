@@ -54,11 +54,11 @@ public class Temporada {
 
     //Métodos----------
     public void addEpisodio(Episodio episodio){
-        episodio.setTemporada(this);
         this.episodios.add(episodio);
+        episodio.setTemporada(this);
     }
     public void delEpisodio(Episodio episodio){
-        episodio.setTemporada(this);
+        episodio.setTemporada(null);
         this.episodios.remove(episodio);
     }
 

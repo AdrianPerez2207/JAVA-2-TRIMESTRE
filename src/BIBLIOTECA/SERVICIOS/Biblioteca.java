@@ -36,6 +36,15 @@ public class Biblioteca {
         this.usuarios.remove(usuario);
     }
 
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Biblioteca{");
+        sb.append("documentos=").append(documentos);
+        sb.append(", usuarios=").append(usuarios);
+        sb.append('}');
+        return sb.toString();
+    }
+
     /**
      * Método para buscar un usuario en la lista de una biblioteca
      * @param dni comprobamos que sean iguales
@@ -71,6 +80,7 @@ public class Biblioteca {
             return false;
         } else {
             doc.prestaAUsuario(usuario);
+            usuario.addDocumento(doc); //También hay que añadir el documento a la lista de documentos prestados
             return true;
         }
     }
@@ -82,13 +92,19 @@ public class Biblioteca {
      * @return "false" si el documento no esté prestado
      * @return "true" si el documento estaba prestado
      * Se llama a devuelve de documento y le pasamos el usuario que está devolviendo ese documento
+     * Borramos el documento de la lista del usuario.
      */
 
     public boolean devuelveDocumento(Documento doc, Usuario usuario){
-        if (!doc.estaPrestado()){
+        //Comprobamos que el documento está en la lista
+        int posicion = documentos.indexOf(doc);
+        if (posicion < 0){
+            return false;
+        }else if (!doc.estaPrestado()){
             return false;
         } else {
             doc.devuelve(usuario);
+            usuario.delDocumento(doc);
             return true;
         }
     }
@@ -120,6 +136,23 @@ public class Biblioteca {
         ArrayList<Documento> resultado = new ArrayList<>();
         for (Documento documento : this.documentos){
             if (documento.getTitulo().contains(texto)){
+                resultado.add(documento);
+            }
+        }
+        return resultado;
+    }
+
+    /**
+     * Buscamos en la lista de documentos y comprobamos que contenga el autor pasado por parámetro
+     * Lo añadimos a nuestra lista
+     * @param autor
+     * @return la lista creada donde vamos guardando los documentos que coinciden con el autor
+     */
+
+    public ArrayList<Documento> buscarDocumento(Autor autor){
+        ArrayList<Documento> resultado = new ArrayList<>();
+        for (Documento documento : this.documentos){
+            if (documento.getAutores().contains(autor)){
                 resultado.add(documento);
             }
         }

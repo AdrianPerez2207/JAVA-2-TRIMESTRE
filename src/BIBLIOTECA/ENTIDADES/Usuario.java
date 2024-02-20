@@ -109,7 +109,7 @@ public class Usuario {
      * Nunca nos vamos a poder pasar de ese límite.
      */
     public boolean alcanzadoLimitePrestamos(){
-        if (this.limitePrestamos >= this.documentosEnPrestamo.size()){
+        if (this.limitePrestamos < this.documentosEnPrestamo.size()){
             return true;
         } else {
             return false;

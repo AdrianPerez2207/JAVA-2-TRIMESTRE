@@ -25,15 +25,16 @@ public class Serie extends Multimedia{
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Serie{");
-        sb.append("codigo=").append(codigo);
+        sb.append(", codigo=").append(codigo);
         sb.append(", titulo='").append(titulo).append('\'');
         sb.append(", esPlus=").append(esPlus);
         sb.append(", precio=").append(precio);
         sb.append(", genero=").append(genero);
-        sb.append(", temporadas=").append(temporadas);
         sb.append('}');
         return sb.toString();
     }
+
+
     //Métodos------------
 
     /**
@@ -48,8 +49,8 @@ public class Serie extends Multimedia{
      * @param temporada
      */
     public void addTemporada(Temporada temporada){
-        temporada.setSerie(this);
         this.temporadas.add(temporada);
+        temporada.setSerie(this);
     }
     /**
      * Borramos temporadas del Array
