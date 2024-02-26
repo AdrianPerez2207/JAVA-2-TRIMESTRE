@@ -1,4 +1,8 @@
-package BLADE_OF_DARKNESS.Clases;
+package BLADE_OF_DARKNESS.Test;
+
+import BLADE_OF_DARKNESS.Clases.Jugador1;
+import BLADE_OF_DARKNESS.Clases.Monstruo1;
+import BLADE_OF_DARKNESS.Clases.Partida;
 
 public class TestJuego {
 
