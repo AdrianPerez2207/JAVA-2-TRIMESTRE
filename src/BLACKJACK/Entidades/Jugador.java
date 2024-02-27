@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Jugador {
 
     protected ArrayList<Carta> mano;
+    //Implementar un estado para hacer los turnos
 
     public Jugador() {
         this.mano = new ArrayList<>();

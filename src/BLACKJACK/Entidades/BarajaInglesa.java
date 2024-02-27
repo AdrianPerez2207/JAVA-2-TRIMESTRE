@@ -47,4 +47,25 @@ public class BarajaInglesa extends Baraja{
     public int generarNumero(int minimo, int maximo){ /*Método para generar números aleatoriamente*/
         return (int) ((Math.random() * (maximo - minimo + 1) + minimo));
     }
+
+    /**
+     * Cambiamos el formato del valor de la carta a la baraja inglesa.
+     * Lo hacemos estático para que no dependa de este objeto.
+     * @param numero de carta
+     * @return el valor de la carta pintado de forma de la baraja inglesa
+     */
+    public static String pintarNumero(Integer numero){
+        switch (numero) {
+            case 11:
+                return "J";
+            case 12:
+                return "Q";
+            case 13:
+                return "K";
+            case 1:
+                return "A";
+            default:
+                return numero.toString();
+        }
+    }
 }

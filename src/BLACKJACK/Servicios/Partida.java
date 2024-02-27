@@ -8,10 +8,34 @@ public class Partida {
     private Crupier crupier;
     private BarajaInglesa baraja;
 
-    public Partida(JugadorBlack jugador, Crupier crupier) {
+    public Partida(JugadorBlack jugador) {
         this.jugador = jugador;
-        this.crupier = crupier;
+        this.crupier = new Crupier();
         this.baraja = new BarajaInglesa();
+    }
+
+    public JugadorBlack getJugador() {
+        return jugador;
+    }
+
+    public void setJugador(JugadorBlack jugador) {
+        this.jugador = jugador;
+    }
+
+    public Crupier getCrupier() {
+        return crupier;
+    }
+
+    public void setCrupier(Crupier crupier) {
+        this.crupier = crupier;
+    }
+
+    public BarajaInglesa getBaraja() {
+        return baraja;
+    }
+
+    public void setBaraja(BarajaInglesa baraja) {
+        this.baraja = baraja;
     }
 
     @Override

@@ -47,8 +47,8 @@ public class Carta {
     @Override
     public String toString() {
         return "Carta{" +
-                "numeroCarta=" + valorCarta +
-                ", paloCarta='" + paloCarta + '\'' +
+                BarajaInglesa.pintarNumero(valorCarta) +
+                getNombreCortoCarta() +
                 '}';
     }
 }
