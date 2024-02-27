@@ -2,12 +2,12 @@ package BLACKJACK.Entidades;
 
 public class Carta {
 
-    private String valorCarta;
+    private int valorCarta;
     private String paloCarta;
 
     //Constructor-----
 
-    public Carta(String valorCarta, String paloCarta) {
+    public Carta(int valorCarta, String paloCarta) {
         this.valorCarta = valorCarta;
         this.paloCarta = paloCarta;
     }
@@ -18,11 +18,11 @@ public class Carta {
     }
     //Getters and setters
 
-    public String getValorCarta() {
+    public int getValorCarta() {
         return valorCarta;
     }
 
-    public void setValorCarta(String valorCarta) {
+    public void setValorCarta(int valorCarta) {
         this.valorCarta = valorCarta;
     }
 

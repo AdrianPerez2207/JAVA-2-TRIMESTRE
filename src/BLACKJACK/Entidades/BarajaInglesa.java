@@ -1,7 +1,7 @@
 package BLACKJACK.Entidades;
 public class BarajaInglesa extends Baraja{
 
-    private static String[] valorCarta = {"2","3","4","5","6","7","8","9", "10", "J", "Q", "K", "A"};
+    private static int[] valorCarta = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1};
     private static String[] paloCarta = {"Corazones", "Diamantes", "Tréboles", "Picas"};
 
     //Constructor-----
@@ -16,12 +16,21 @@ public class BarajaInglesa extends Baraja{
     }
 
     //Métodos------
+
+    /**
+     * @return la primera carta de la baraja.
+     */
     @Override
     public Carta repartirCarta() {
         Carta carta = baraja.getFirst();
         baraja.removeFirst();
         return carta;
     }
+
+    /**
+     * Generamos una carta, y le damos el valor de una de las cartas de la baraja generada aleatoriamente.
+     * @return la carta generada al azar.
+     */
 
     @Override
     public Carta azar() {
