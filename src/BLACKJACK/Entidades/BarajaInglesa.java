@@ -15,6 +15,23 @@ public class BarajaInglesa extends Baraja{
         }
     }
 
+    public static int[] getValorCarta() {
+        return valorCarta;
+    }
+
+    public static void setValorCarta(int[] valorCarta) {
+        BarajaInglesa.valorCarta = valorCarta;
+    }
+
+    public static String[] getPaloCarta() {
+        return paloCarta;
+    }
+
+    public static void setPaloCarta(String[] paloCarta) {
+        BarajaInglesa.paloCarta = paloCarta;
+    }
+
+
     //Métodos------
 
     /**
@@ -44,7 +61,7 @@ public class BarajaInglesa extends Baraja{
      * @param maximo
      * @return el número generado.
      */
-    public int generarNumero(int minimo, int maximo){ /*Método para generar números aleatoriamente*/
+    public int generarNumero(int minimo, int maximo){
         return (int) ((Math.random() * (maximo - minimo + 1) + minimo));
     }
 

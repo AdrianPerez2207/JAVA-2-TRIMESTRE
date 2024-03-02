@@ -1,5 +1,7 @@
 package BLACKJACK.Entidades;
 
+import java.util.Objects;
+
 public class Carta {
 
     private int valorCarta;
@@ -32,6 +34,19 @@ public class Carta {
 
     public void setPaloCarta(String paloCarta) {
         this.paloCarta = paloCarta;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Carta carta = (Carta) o;
+        return valorCarta == carta.valorCarta;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(valorCarta);
     }
     //Métodos----
 

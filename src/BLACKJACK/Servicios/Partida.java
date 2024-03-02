@@ -8,9 +8,9 @@ public class Partida {
     private Crupier crupier;
     private BarajaInglesa baraja;
 
-    public Partida(JugadorBlack jugador) {
+    public Partida(JugadorBlack jugador, Crupier crupier) {
         this.jugador = jugador;
-        this.crupier = new Crupier();
+        this.crupier = crupier;
         this.baraja = new BarajaInglesa();
     }
 

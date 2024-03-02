@@ -29,6 +29,7 @@ public abstract class Baraja {
      */
     public abstract Carta azar();
 
+
     /**
      * Desordena toda la baraja.
      */
