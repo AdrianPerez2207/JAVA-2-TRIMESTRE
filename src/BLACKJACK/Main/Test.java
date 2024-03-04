@@ -42,9 +42,12 @@ public class Test {
                     System.out.println();
                     /**
                      * Limpiamos las manos de los jugadores.
+                     * Cambiamos el estado de los jugadores a false para poder volver a iniciar.
                      */
                     jugador.getMano().clear();
+                    jugador.setPlantado(false);
                     crupier.getMano().clear();
+                    crupier.setPlantado(false);
                     opcionJugador = 0;
                     break;
                 case 2:
@@ -79,14 +82,14 @@ public class Test {
                     partida.asignarCarta(jugador);
                     pintarMano(jugador);
                     if (jugador.valorMano() > 21){
-                        jugador.setPlantado(true);
+                        jugador.cambiarEstado();
                         System.out.println("El jugador " + jugador.getNombre() + " se ha pasado.");
                         System.out.println();
                         break;
                     }
                     break;
                 case 2:
-                    jugador.setPlantado(true);
+                    jugador.cambiarEstado();
                     System.out.println("El jugador " + jugador.getNombre() + " se planta.");
                     pintarMano(jugador);
                     System.out.println();
@@ -129,16 +132,16 @@ public class Test {
 
     /**
      * Generamos el juego del crupier aleatoriamente.
-     * Si llega al valor de su límite, se planta, si se pasa, se planta y pierde la partida.
+     * Si llega al valor de su límite, se planta, si se pasa, se planta.
      * @param crupier
      * @param partida
      */
 
     private static void juegaElCrupier(Crupier crupier, Partida partida) {
         System.out.println("--------------------------Turno del Crupier---------------------------");
-        while (crupier.valorMano() <= 21 && !crupier.isPlantado()) {
+        while (!crupier.isPlantado()) {
             if (crupier.valorMano() >= crupier.getLimite()) {
-                crupier.setPlantado(true);
+                crupier.cambiarEstado();
                 System.out.println("El crupier se ha plantado.");
                 pintarMano(crupier);
                 break;
@@ -146,15 +149,15 @@ public class Test {
             partida.asignarCarta(crupier);
             pintarMano(crupier);
             if (crupier.valorMano() == crupier.getLimite()) {
-                crupier.setPlantado(true);
+                crupier.cambiarEstado();
                 System.out.println("El crupier se ha plantado.");
                 break;
             } else if (crupier.valorMano() > crupier.getLimite() && crupier.valorMano() <= 21){
-                crupier.setPlantado(true);
+                crupier.cambiarEstado();
                 System.out.println("El crupier se ha plantado.");
                 break;
             } else if (crupier.valorMano() > 21){
-                crupier.setPlantado(true);
+                crupier.cambiarEstado();
                 System.out.println("El crupier se ha pasado.");
                 break;
             }
